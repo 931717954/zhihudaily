@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             sendRequest( new URL(" https://news-at.zhihu.com/api/4/news/before/"+date),SHORT_NEWS);
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
