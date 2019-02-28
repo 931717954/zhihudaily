@@ -1,3 +1,5 @@
+package com.example.zhihuapplication;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;

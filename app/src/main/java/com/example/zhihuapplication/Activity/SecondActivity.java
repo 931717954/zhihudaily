@@ -1,4 +1,4 @@
-package com.example.zhihuapplication;
+package com.example.zhihuapplication.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.webkit.WebView;
 
 import com.example.zhihuapplication.HtmlUtil.HtmlUtil;
+import com.example.zhihuapplication.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,7 +36,7 @@ public class SecondActivity extends AppCompatActivity {
         htmlData.append(NEEDED_FORMAT_CSS_TAG);
         try {
             object = new JSONObject(data);
-            Log.d("lxx", "onCreate:1 "+object.get("css"));
+
             htmlData.append((object.get("css")));
 
             htmlData.append((object.get("body")));
@@ -43,7 +44,7 @@ public class SecondActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Log.d("lxx", "onCreate: "+htmlData);
+
         webView.loadData(htmlData.toString(),"text/html; charset=utf-8","utf-8");
 
     }

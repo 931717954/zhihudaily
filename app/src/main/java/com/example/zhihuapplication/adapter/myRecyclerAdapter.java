@@ -1,7 +1,6 @@
 package com.example.zhihuapplication.adapter;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,15 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.zhihuapplication.MainActivity;
+import com.example.zhihuapplication.Activity.MainActivity;
 import com.example.zhihuapplication.R;
 import com.example.zhihuapplication.ShortNewsData;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.TreeMap;
-import java.util.zip.Inflater;
 
 public class myRecyclerAdapter extends RecyclerView.Adapter {
     static final int HEAD_VIEW = 0;
@@ -65,11 +61,14 @@ public class myRecyclerAdapter extends RecyclerView.Adapter {
         }
     }
     public void upDate(TreeMap map){
+
         ArrayList<ShortNewsData> list = (ArrayList<ShortNewsData>) map.get(targetDate);
         this.list.add(new ShortNewsData(list.get(0).getDate()));
         for (int num = 0 ; num < list.size() ; num++) {
             this.list.add(list.get(num));
         }
+
+
         notifyItemRangeChanged(this.list.size() - list.size() -1 , list.size());
     }
     public void refreshDate(TreeMap map){
@@ -141,6 +140,7 @@ public class myRecyclerAdapter extends RecyclerView.Adapter {
             }else {
                 //load more
                 targetDate = list.get(list.size()-1).getDate();
+                Log.d(TAG, "onBindViewHolder: "+targetDate);
                 activityContext.loadMore(targetDate);
             }
         }
