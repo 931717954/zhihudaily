@@ -22,6 +22,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+        signingConfigs {
+            release {
+                keyAlias 'key0'
+                keyPassword '259753UI'
+                storeFile file('C:\\Users\\oy\\androidkeystore.jks')
+                storePassword '259753UI'
+            }
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+            debug {
+                signingConfig signingConfigs.release
+            }
+        }
+
+
 }
 
 dependencies {

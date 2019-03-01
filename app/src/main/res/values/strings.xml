@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">ZhihuApplication</string>
+    <string name="app_name">小日报</string>
     <string name="title_activity_second">SecondActivity</string>
 </resources>

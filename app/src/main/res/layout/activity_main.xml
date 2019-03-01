@@ -47,15 +47,15 @@
            android:background="@color/colorAccent"/>
 
        <TextView
-           android:text="登陆"
-           android:textSize="33dp"
+           android:text="  小日报"
+           android:textSize="26dp"
            android:textColor="@color/colorPrimary"
            android:gravity="center_vertical"
            android:layout_toRightOf="@+id/img_user"
            android:id="@+id/tv_user_name"
            android:layout_width="fill_parent"
            android:layout_height="55dp"
-           android:background="@color/colorAccent"
+           android:background="#3dc6fd"
           />
         <TextView
             android:layout_below="@+id/tv_user_name"

@@ -1,6 +1,7 @@
 package com.example.zhihuapplication.adapter;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -67,9 +68,19 @@ public class myRecyclerAdapter extends RecyclerView.Adapter {
         for (int num = 0 ; num < list.size() ; num++) {
             this.list.add(list.get(num));
         }
+        final ArrayList<ShortNewsData> mList = this.list;
 
 
-        notifyItemRangeChanged(this.list.size() - list.size() -1 , list.size());
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                // 刷新操作
+
+                notifyItemRangeChanged(mList.size() - list.size() -1 , list.size());
+            }
+        });
+
+
     }
     public void refreshDate(TreeMap map){
         int size = ((ArrayList<ShortNewsData>) this.map.get("latestDate")).size()+1;
@@ -82,11 +93,11 @@ public class myRecyclerAdapter extends RecyclerView.Adapter {
 
         list.add(0,new ShortNewsData(((ArrayList<ShortNewsData>) map.get("latestDate")).get(0).getDate()));
 
-        Log.d("lzx", "refreshDate: success"+list.get(0).getDate());
+
         notifyItemRangeRemoved(0,size+4);
 
         notifyItemRangeInserted(0,((ArrayList<ShortNewsData>) map.get("latestDate")).size()+4);
-        Log.d("lzx", "refreshDate: 1success");
+
         activityContext.closeSwipeRefreshLayout();
 
         this.map = map;
@@ -99,6 +110,7 @@ public class myRecyclerAdapter extends RecyclerView.Adapter {
         Context mContext = viewGroup.getContext();
         switch (i){
             case DATE_VIEW:
+
                 View view = LayoutInflater.from(mContext).inflate(R.layout.mydate,viewGroup,false);
                     DateViewHolder dataViewHolder = new DateViewHolder(view);
                 return dataViewHolder;

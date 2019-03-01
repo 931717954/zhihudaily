@@ -2,7 +2,6 @@ package com.example.zhihuapplication;
 
 import android.util.Log;
 
-import com.example.zhihuapplication.ShortNewsData;
 
 import org.json.JSONArray;
 import org.json.JSONException;

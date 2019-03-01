@@ -3,20 +3,12 @@ package com.example.zhihuapplication;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.concurrent.Callable;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
+
 import okhttp3.Response;
 
 
@@ -52,10 +44,7 @@ public class LoadData {
 
     private String getNetData(String url) {
 
-//        OkHttpClient client = new OkHttpClient();
-//        Request.Builder builder = new Request.Builder();
-//        Request request = builder.get().url(url).build();
-//        Call call = client.newCall(request);
+
         Runnable callable = new Runnable(url);
         FutureTask<String> ft = new FutureTask<>(callable);
         new Thread(ft).start();
@@ -67,7 +56,7 @@ public class LoadData {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        saveData(url,data);
 
         return data;
     }
