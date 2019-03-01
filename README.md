@@ -6,6 +6,7 @@
 ![night](https://github.com/931717954/zhihudaily/blob/master/%E5%A4%9C%E9%97%B4%E4%B8%BB%E9%A1%B5.PNG)
 
 * 完成了下拉刷新 上拉加载等功能
+  
   使用了swiprefreshlayout完成下拉刷新功能 
   设置了一个在recyclerview中设置了footerview，当加载到footerview时获取下一页数据
   
