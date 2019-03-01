@@ -1,5 +1,6 @@
 # zhihudaily
 * 实现了知乎日报的主要功能(并且去掉了认为不好看的控件)
+
 ![main](https://github.com/931717954/zhihudaily/blob/master/%E4%B8%BB%E9%A1%B5.PNG)
 
 ![night](https://github.com/931717954/zhihudaily/blob/master/%E5%A4%9C%E9%97%B4%E4%B8%BB%E9%A1%B5.PNG)
